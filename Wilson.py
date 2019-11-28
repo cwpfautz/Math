@@ -1,17 +1,22 @@
-def factorial(num):
-    fact = 1
-    for i in range(num):
-        fact = fact*(i+1)
-    return fact
+import math as m
+import util
 
-def isPrime(num): 
-    if num<1:
-        return "is not an integer greater than zero."
-    elif factorial(num-1)%num == (-1)%num:
-        return "is prime"
+
+def is_prime(n):
+    """Determine whether n is prime using Wilson's Theorem"""
+
+    return m.factorial(n - 1) % n == (-1) % n
+
+
+def display_primality(n):
+    """Display the primality of n"""
+
+    if is_prime(n):
+        print("{0} is a prime number".format(n))
     else:
-        return "is not prime"
+        print("{0} is a composite number".format(n))
 
-if __name__=="__main__":
-    num = int(input("Enter an integer greater than zero: "))
-    print(num, isPrime(num))
+
+if __name__ == '__main__':
+    num = util.get_num(lim=1)
+    display_primality(num)
