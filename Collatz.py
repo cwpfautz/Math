@@ -1,12 +1,17 @@
-def runNum(num):
-    n = num % 2
-    if n==0:
-        return num / 2
-    else:
-        return num * 3 + 1
+import util
 
-if __name__=="__main__":
-    number = int(input("Enter a number: "))
-    while(number!=1):
-        number = runNum(number)
-        print(number)
+
+def run_collatz(n):
+    """Run the Collatz Conjecture for n"""
+
+    while n != 1:
+        if util.is_even(n):
+            n = int(n / 2)
+        else:
+            n = int(n * 3 + 1)
+        print(n)
+
+
+if __name__ == '__main__':
+    num = util.get_num(lim=0)
+    run_collatz(num)
