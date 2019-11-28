@@ -44,7 +44,7 @@ int main()
  */
 int get_num(const int lim)
 {
-    int number(0);
+    int number(0); // Number given by the user
 
     cout << "Please enter an integer greater than " << lim << ":";
     cin >> number;
@@ -67,14 +67,14 @@ int get_num(const int lim)
  */
 unsigned long long factorial(const int n)
 {
-    unsigned long long fact(1);
+    unsigned long long nFact(1); // Factorial of n
 
     for (int i = n; i > 1; --i)
     {
-        fact *= i;
+        nFact *= i;
     }
 
-    return fact;
+    return nFact;
 }
 
 /**
