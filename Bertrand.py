@@ -1,22 +1,20 @@
-import math as m
+import util
+import Wilson
 
-def isPrime(num): 
-    return m.factorial(num-1)%num == (-1)%num
 
-def runNum(num): 
-    if num<=3:
-        return "None because this theorem only works for integers greater than three"
-    else:
-        primes = []
-        i = num+1
-        while i < 2*num-2:
-            if isPrime(i):
-                primes.append(i)
-                i+=1
-            else:
-                i+=1
-        return primes
+def find_primes(n):
+    """Find and return a list of all primes between n and 2n-2"""
 
-if __name__=="__main__":
-    num = int(input("Enter an integer greater than three: "))
-    print("Primes that satisfy Bertrand's Postulate for {0}:\n".format(num), runNum(num))
+    primes = []  # List of prime numbers
+
+    for i in range(n + 1, 2 * n - 2):
+        if Wilson.is_prime(i):
+            primes.append(i)
+
+    return primes
+
+
+if __name__ == '__main__':
+    num = util.get_num(lim=3)
+    print("Primes between {0} and {1}:".format(num, 2 * num - 2))
+    util.display_list(find_primes(num))
